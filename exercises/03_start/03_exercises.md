@@ -14,3 +14,4 @@ IPython 7.18.1 -- An enhanced Interactive Python. Type '?' for help.
 In [1]:
 ```
 
+<img width="562" height="203" alt="image" src="https://github.com/user-attachments/assets/0c41a70a-cbd6-488a-b71b-372651995d7a" />
