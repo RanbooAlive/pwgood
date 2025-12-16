@@ -17,5 +17,8 @@
 
 mac = "AAAA:BBBB:CCCC"
 
-bin_mac = "{:b}".format(int(mac.replace(":", ""), 16))
-print(bin_mac)
+mac2 = mac.replace(":", "")
+hexadecimal_number = int(mac2, 16)
+binary_string = "{:b}".format(hexadecimal_number)
+
+print(binary_string)

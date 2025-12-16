@@ -27,10 +27,14 @@
 
 ip = "192.168.3.1"
 
-octets = ip.split(".")
-
-output = """
+ip_parts = ip.split(".")
+decimal_values = [int(part) for part in ip_parts]
+output_template = """
 {0:<10}{1:<10}{2:<10}{3:<10}
-{0:08b}  {1:08b}  {2:08b}  {3:08b}"""
-
-print(output.format(int(octets[0]), int(octets[1]), int(octets[2]), int(octets[3])))
+{0:08b} {1:08b} {2:08b} {3:08b}"""
+print(output_template.format(
+decimal_values[0],
+decimal_values[1],
+decimal_values[2],
+decimal_values[3]
+))
