@@ -23,3 +23,20 @@
 
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 """
+
+def get_int_vlan_map(config_filename):
+access_ports = {}
+trunk_ports = {}
+with open(config_filename) as config_file
+current_interface = ""
+for config_line in config_file:
+config_line = config_line.rstrip()
+if config_line.startswith("interface"):
+current_interface = config_line.split()[1]
+elif "access vlan" in config_line:
+vlan_number = int(config_line.split()[-1])
+access_ports[current_interface] = vlan_number
+elif "trunk allowed" in config_line:
+vlan_list = [int(vlan) for vlan in config_line.split()[-1].split(",")]
+trunk_ports[current_interface] = vlan_list
+return access_ports, trunk_ports

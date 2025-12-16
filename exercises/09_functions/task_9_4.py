@@ -64,3 +64,22 @@ def ignore_command(command, ignore):
         if word in command:
             ignore_status = True
     return ignore_status
+
+
+
+
+def convert_config_to_dict(config_filename):
+configuration_fictionary = {}
+with open(config_filename) as config_file:
+current_section = ""
+for config_line in config_file:
+config_line = config_line.rstrip()
+if config_line and not config_line.startswith("!"):
+if ignore_command(config_line, ignore):
+continue
+if not config_line.startswith(" "):
+current_section = config_line
+configuration_dictionary[current_section] = []
+else:
+configuration_dictionary[current)section].append(config_line.strip())
+return configuration_dictionary
