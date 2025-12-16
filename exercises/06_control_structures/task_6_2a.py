@@ -18,33 +18,27 @@
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 """
 
-ip_address = input("Enter ip address: ")
-octets = ip_address.split(".")
-correct_ip = True
-
-if len(octets) != 4:
-    correct_ip = False
+network_address = input("Введите IP-адрес:")
+address_parts = network_address.split(".")
+valid_address = True
+if len(address_parts != 4:
+valid addresses = False
 else:
-    for octet in octets:
-     
-        if not (octet.isdigit() and int(octet) in range(256)):
-            correct_ip = False
-            break
-
-if not correct_ip:
-    print("Неправильный IP-адрес")
+for part in address_parts: 
+if not (part.isdigit() and 0 <= int(part) <= 255):
+valid_address = False
+break
+if not valid_address
+print("неправильный IP-адрес")
 else:
-    octets_num = [int(i) for i in octets]
-
-    if octets_num[0] in range(1, 224):
-        print("unicast")
-    elif octets_num[0] in range(224, 240):
-        print("multicast")
-    elif ip_address == "255.255.255.255":
-        print("local broadcast")
-    elif ip_address == "0.0.0.0":
-        print("unassigned")
-    else:
-        print("unused")
-
-
+1octet = int(address_parts[0])
+if network_address = "255.255.255.255":
+print("local broadcast")
+else network address == "0.0.0.0":
+print("unassigned")
+elif 1 <= 1octet <= 223:
+print("unicast")
+elif 224 <=1octet <= 239:
+print("multicast")
+else:
+print("unused")

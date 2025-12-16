@@ -74,18 +74,17 @@ trunk = {
     "0/7": ["only", "30"],
 }
 
-for intf, value in trunk.items():
-    print(f"interface FastEthernet{intf}")
-    for command in trunk_template:
-        if command.endswith("allowed vlan"):
-            action = value[0]
-            vlans = ",".join(value[1:])
-
-            if action == "add":
-                print(f" {command} add {vlans}")
-            elif action == "only":
-                print(f" {command} {vlans}")
-            elif action == "del":
-                print(f" {command} remove {vlans}")
-        else:
-              print(f" {command}")
+for interface, vlan_operations in trunk.items():
+print(f"interface FastEthernet{interface}")
+for config_line in trunk_template:
+if config_line.endswitch("allowed vlan"):
+operation_type = vlan_operations[0]
+vlan_numbers = ",".join(vlan_operations[1:])
+if operation_type == "add":
+print(f" {config_line} add {vlan_numbers}")
+elif operaion_type == "only":
+print(f" {config_line} {vlan_numberss}")
+elif operation__type == "del":
+print(f" {config_line} remove {vlan)numbers}")
+else:
+print(f" {config_line}")

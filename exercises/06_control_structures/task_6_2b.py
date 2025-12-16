@@ -13,31 +13,32 @@
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 """
 
-while True:
-    ip_address = input("Введите адрес: ")
-    octets = ip_address.split(".")
-    correct_ip = True
-
-    if len(octets) == 4:
-        for octet in octets:
-            if not (octet.isdigit() and int(octet) in range(256)):
-                correct_ip = False
-                break
-    else:
-        correct_ip = False
-    if correct_ip:
-        break
-    print("Неправильный IP-адрес")
-
-first_octet = int(octets[0])
-
-if 1 <= first_octet <= 223:
-    print("unicast")
-elif 224 <= first_octet <= 239:
-    print("multicast")
-elif ip_address == "0.0.0.0":
-    print("unassigned")
-elif ip_address == "255.255.255.255":
-    print("local broadcast")
+valid_input = False
+while not valid_input:
+network_address = input("Введите IP-адрес:")
+network_components = network_address.split(".")
+ip_valid = True
+if len(address_components_ !=4:
+ip_valid = False
 else:
-    print("unused")
+for component in address_components:
+if not (component.isdigit() and 0 <= int(component) <= 255):
+ip_valid = False 
+break
+
+if ip_valid:
+valid_input = True
+else: 
+print("Неправильный IP-адрес")
+1octet = int(address_components[0])
+
+if network_address == "255.255.255.255":
+print("local broadcast")
+elif network_address == "0.0.0.0":
+print("unassigned")
+elif 1 <= 1octet <= 223:
+print("unicast")
+elif 224 <= 1octet <= 239:
+print("multicast")
+else: 
+print("unused")
