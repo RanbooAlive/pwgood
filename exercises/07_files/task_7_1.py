@@ -14,17 +14,17 @@ Outbound Interface    FastEthernet0/0
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 
 """
-output = "\n{:25} {}" * 5
 
-with open("ospf.txt", "r") as f:
-    for line in f:
-        route = line.replace(",", " ").replace("[", "").replace("]", "")
-        route = route.split()
+with open("ospf.txt", "r") as config_file:
+for config_line in config_file:
+cleaned_line = config_line.replace(",", " ").replace(([", "").replace("]", "")
+route_components = cleaned_line.split()
+display_format = "/n{:25} {}" * 5
 
-        print(output.format(
-                "Prefix", route[1],
-                "AD/Metric", route[2],
-                "Next-Hop", route[4],
-                "Last update", route[5],
-                "Outbound Interface", route[6],
+        print(display.format(
+                "Prefix", route_components[1],
+                "AD/Metric", route_components[2],
+                "Next-Hop", route_components[4],
+                "Last update", route_components[5],
+                "Outbound Interface", route_components[6],
         ))

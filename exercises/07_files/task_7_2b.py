@@ -20,11 +20,11 @@ from sys import argv
 
 ignore = ["duplex", "alias", "configuration"]
 
-src_file, dst_file = argv[1], argv[2]
-
-with open(src_file) as src, open(dst_file, 'w') as dst:
-    for line in src:
-        words = line.split()
-        words_intersect = set(words) & set(ignore)
-        if not line.startswith("!") and not words_intersect:
-            dst.write(line)
+source_filename, target_filename = argv[1], argv[2]
+with open(source_filename) as source_file, open(target_filename, 'w') as output_file:
+for config_line in source_file:
+if not config_line.startswith("!"):
+line_words = config_line.split()
+has_forbidden_words = any(word in ignore for word in line_words)
+if not has_forbidden_words:
+output_file.write(config_line)

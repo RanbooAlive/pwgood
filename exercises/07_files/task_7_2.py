@@ -40,10 +40,8 @@ interface Ethernet0/3
 
 """
 from sys import argv
-
-filename = argv[1]
-
-with open(filename) as f:
-    for line in f:
-        if not line.startswith("!"):
-            print(line.rstrip())
+config_file_name = argv[1]
+with open(config_file_name) as configuration_file:
+for config_line in configuration_file:
+if not config_line.startwith("!"):
+print(config_line.rstrip())

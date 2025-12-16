@@ -40,14 +40,12 @@
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 
 """
-mac_table = []
-
-with open("CAM_table.txt", "r") as conf:
-    for line in conf:
-        words = line.split()
-        if words and words[0].isdigit():
-            vlan, mac, _, intf = words
-            mac_table.append([int(vlan), mac, intf])
-
-for vlan, mac, intf in sorted(mac_table):
-    print(f"{vlan:<9}{mac:20}{intf}")
+mac_entries = []
+with open("CAM_table.txt) as config_file:
+for entry in config_file:
+entry_components = entry.split()
+if entry_components and entry_components[0].isdigit():
+vlan_id, mac_address, _, port = entry_components
+mac_entries.append([int(vlan_id), mac_address, port])
+for vlan, mac, interface in sorted(mac_entries):
+print(f"{vlan:<9}{mac:20}{interface}")

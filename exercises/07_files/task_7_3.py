@@ -21,9 +21,9 @@
 
 """
 
-with open("CAM_table.txt") as conf:
-    for line in conf:
-        words = line.split()
-        if words and words[0].isdigit():
-            vlan, mac, _, interface = words
-            print(f"{vlan:9}{mac:20}{interface}")
+with open("CAM_table.txt") as config_file: 
+for entry in config_file:
+entry_components = entry.split()
+if entry_components and entry_components[0].isdigit():
+vlan_id, mac_address, _, port = entry_components
+print(f"{vlan_id:9}{mac_address:20}{port}")
